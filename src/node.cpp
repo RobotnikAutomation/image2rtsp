@@ -59,7 +59,7 @@ public:
 		// regist your callback as many as your sessions
 		{
 			m_sub.push_back(m_nh->subscribe(m_subTopic[0], 10, &Image2RTSP_sample::Session_0_callback, this));
-			m_sub.push_back(m_nh->subscribe(m_subTopic[1], 10, &Image2RTSP_sample::Session_1_callback, this));
+			//m_sub.push_back(m_nh->subscribe(m_subTopic[1], 10, &Image2RTSP_sample::Session_1_callback, this));
 		}
 		
 		// run media & server thread
@@ -84,9 +84,9 @@ private:
 		m_rtsp->StreamImage(&(msg->data[0]), 0);
 	}
 
-	void Session_1_callback(const sensor_msgs::Image::ConstPtr &msg){
-		m_rtsp->StreamImage(&(msg->data[0]), 1);
-	}
+	//void Session_1_callback(const sensor_msgs::Image::ConstPtr &msg){
+	//	m_rtsp->StreamImage(&(msg->data[0]), 1);
+	//}
 
 	void ServerRun(){
 		m_rtsp->DoEvent();
